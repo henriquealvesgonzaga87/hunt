@@ -1,11 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
 
-class UserModel(models.Model, AbstractUser):
-  username = models.CharField(max_length=50, unique=True, verbose_name="username", blank=False, null=False)
-  email = models.EmailField(max_length=255, unique=True, verbose_name="e-mail", blank=False, null=False)
-  password = models.CharField(max_length=50, verbose_name="password", blank=False, null=False)
+class UserModel(models.Model):
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
 
   class Config:
     db_table = "user"

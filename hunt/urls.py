@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from hunt.views import MainPage
+
+
+app_name = "core"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", MainPage.as_view(), name="main_page")
 ]
