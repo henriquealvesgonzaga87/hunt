@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'hunt.urls'
+
+AUTH_USER_MODEL = 'hunt.UserModel'
 
 TEMPLATES = [
     {
