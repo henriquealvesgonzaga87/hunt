@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+from django.contrib.messages import constants
+
 
 load_dotenv()
 
@@ -57,12 +59,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'hunt.urls'
 
-AUTH_USER_MODEL = 'hunt.UserModel'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'global/templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,6 +115,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+MESSAGE_TAGS = {
+    constants.DEBUG: 'message-debug',
+    constants.ERROR: 'message-error',
+    constants.INFO: 'message-info',
+    constants.SUCCESS: 'message-success',
+    constants.WARNING: 'message-warning',
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -129,7 +141,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'base_static'
+    BASE_DIR
 ]
 STATIC_ROOT = BASE_DIR / 'static'
 
