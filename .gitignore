@@ -140,3 +140,4 @@ id_rsa_projeto_django.pub
 !.coveragerc
 .vscode/launch.json
 .vscode/settings.json
+migrations
